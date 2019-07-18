@@ -97,13 +97,13 @@ class ItemController extends Controller
     }
     public function destroy($id){
         $item = Item::find($id);
-        $item->delete();
         if($item){
+            $item->delete();
             return response()->json([
                 'error'=>false,
                 'message'=>'data deleted',
                 'data'=>$item,
-                ],200);
+                ],204);
         } else{
             return response()->json([
                 'error'=>true,
